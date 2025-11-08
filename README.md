@@ -60,7 +60,7 @@ Store, DayOfWeek, Date, Sales, Customers, Open, Promo, StateHoliday, SchoolHolid
 ![Select](https://github.com/temidataspot/rossman-etl-azure/blob/main/select_col.png)
 
 - Added a **Derived Column Transformation** to convert text columns to numeric types:
-```text
+
 Sales_num = toInteger(Sales)
 Customers_num = toInteger(Customers)
 
