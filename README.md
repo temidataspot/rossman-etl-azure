@@ -1,4 +1,5 @@
 # Rossmann Sales ETL Pipeline in Azure Data Factory
+Check out Json files for dataflow and pipeline - [**here**](https://github.com/temidataspot/rossman-etl-azure/blob/main/dataflow1_support_live.zip)
 
 ## Project Overview
 This project demonstrates an **end-to-end ETL (Extract, Transform, Load) pipeline** built using **Azure Data Factory (ADF)**. The pipeline processes the Rossmann Store Sales dataset from Kaggle to produce a cleaned, analytics-ready dataset stored in **Azure Blob Storage**.  
