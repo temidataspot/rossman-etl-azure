@@ -11,20 +11,42 @@ The main goal is to demonstrate **processes in the Azure ecosystem**, including 
 
 ## Architecture
 
-https://github.com/temidataspot/rossman-etl-azure/blob/main/rossman_adf_architechture.png
+![Architecture](https://github.com/temidataspot/rossman-etl-azure/blob/main/rossman_adf_architechture.png)
 
 ---
 
-## Steps Implemented
+## Azure Setup & Getting to Azure Data Factory (ADF)
 
-### Azure Setup
-→ Created a Resource Group, 'priscilla', in Azure to hold all project resources.
-→ Created a Storage Account 'priscillastorage' within the resource group.
-→ Created two Blob Containers:
-    - sales-raw → for raw input CSV files
-    - sales-clean → for storing cleaned data outputs
-    
-https://github.com/temidataspot/rossman-etl-azure/blob/main/az-setup.png
+1. **Created a Resource Group**
+   - In the Azure Portal, navigated to **Resource Groups → + Add** to hold all project resources
+   - Named it: `priscilla`
+   - Selected a supported region (e.g., `France Central`, `Italy North`)
+   - **Review + Create → Create**
+
+2. **Created a Storage Account**
+   - Navigated to **Storage Accounts → + Add**
+   - Named it: `priscillastorage`
+   - Selected the same resource group (`priscilla`)
+   - Chose a supported region
+   - **Review + Create → Create**
+
+3. **Created Blob Containers**
+   - From the newly created storage account
+   - Clicked **Containers → + Container**
+     - Named one container `sales-raw` (for raw CSV files)
+     - Named another `sales-clean` (for cleaned outputs)
+       
+![Containers](https://github.com/temidataspot/rossman-etl-azure/blob/main/az-setup.png)
+
+4. **Accessed Azure Data Factory**
+   - Navigated to **Data Factories → + Add**
+   - Named it
+   - Selected the resource group `priscilla` and region
+   - **Review + Create → Create**
+   - Once deployed, clicked **Launch Studio** to open the ADF UI where I built pipelines and Data Flows.
+
+
+## Steps Implemented
 
 ### 1. Extract (Source)
 - Created a **Linked Service** in ADF pointing to the Azure Storage account (`priscillastorage`).  
@@ -35,18 +57,18 @@ https://github.com/temidataspot/rossman-etl-azure/blob/main/az-setup.png
 - Added a **Select Transformation** to map and check all columns:
 Store, DayOfWeek, Date, Sales, Customers, Open, Promo, StateHoliday, SchoolHoliday
 
-https://github.com/temidataspot/rossman-etl-azure/blob/main/select_col.png
+![Select](https://github.com/temidataspot/rossman-etl-azure/blob/main/select_col.png)
 
 - Added a **Derived Column Transformation** to convert text columns to numeric types:
 ```text
 Sales_num = toInteger(Sales)
 Customers_num = toInteger(Customers)
 
-https://github.com/temidataspot/rossman-etl-azure/blob/main/rossman_adf_architechture.png
+![DerivedCol](https://github.com/temidataspot/rossman-etl-azure/blob/main/rossman_adf_architechture.png)
 
 - Added a **Filter Transformation** to keep only valid records and verified transformations using Data Preview in ADF.
 
-https://github.com/temidataspot/rossman-etl-azure/blob/main/filter_col.png
+![Filter](https://github.com/temidataspot/rossman-etl-azure/blob/main/filter_col.png)
 
 ### 3. Load (Sink)
 - Created a Sink Dataset TrainCSV_Clean pointing to the sales-clean container in Blob Storage.
@@ -55,7 +77,7 @@ https://github.com/temidataspot/rossman-etl-azure/blob/main/filter_col.png
 
 - Ran the pipeline in Debug mode to validate the ETL workflow.
 
-https://github.com/temidataspot/rossman-etl-azure/blob/main/sink_c.png
+![Sink](https://github.com/temidataspot/rossman-etl-azure/blob/main/sink_c.png)
 
 
 
