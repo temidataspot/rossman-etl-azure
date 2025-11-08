@@ -64,7 +64,7 @@ Store, DayOfWeek, Date, Sales, Customers, Open, Promo, StateHoliday, SchoolHolid
 Sales_num = toInteger(Sales)
 Customers_num = toInteger(Customers)
 
-![DerivedCol](https://github.com/temidataspot/rossman-etl-azure/blob/main/rossman_adf_architechture.png)
+![DerivedCol](https://github.com/temidataspot/rossman-etl-azure/blob/main/derived-col.png)
 
 - Added a **Filter Transformation** to keep only valid records and verified transformations using Data Preview in ADF.
 
@@ -78,6 +78,8 @@ Customers_num = toInteger(Customers)
 - Ran the pipeline in Debug mode to validate the ETL workflow.
 
 ![Sink](https://github.com/temidataspot/rossman-etl-azure/blob/main/sink_c.png)
+
+
 
 
 
