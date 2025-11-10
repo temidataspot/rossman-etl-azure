@@ -1,4 +1,6 @@
 # Rossmann Sales ETL Pipeline in Azure Data Factory
+## EDA & Historical Analysis
+[![Project](https://img.shields.io/badge/Rossman-Dashboard-247ba0)](https://app.powerbi.com/view?r=eyJrIjoiMDBlZjMwNmEtMzY3My00MWZiLTgwNmUtNGY1Mjc3YzUxODBhIiwidCI6IjVhYjI0MzA0LWY3NWItNDlkZS04Y2RkLTAyZGMyOGNkNDU5YiJ9)
 Check out JSON files for dataflow and pipeline - [**here**](https://github.com/temidataspot/rossman-etl-azure/blob/main/dataflow1_support_live.zip)
 
 ## Project Overview
@@ -82,9 +84,15 @@ Customers_num = toInteger(Customers)
 
 --
 
-## Next Steps / Extensions
+## 4. Connect to BI
+- Using the Azure storage created earlier, the cleaned data was ported via the Azure account key
+  
+- Data further transformed via Power Query
+  
+- DAX statements were written, report built, and published to BI service
 
-- Connecting the cleaned data to Power BI for analytics and visualisation.
+
+## Next Steps / Extensions
 
 - Using cleaned data for forecasting models [AzureML]
 
